@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction &mdash; Programming formalism intro 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/sphinx_lesson.css" type="text/css" />
+      <link rel="stylesheet" href="_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script src="_static/minipres.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="The Software Development Lifecycle (SDLC)" href="sdlc.html" />
+    <link rel="prev" title="Programming formalisms — Introduction day" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Programming formalism intro
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Lesson:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-software">What is software?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#some-concepts">Some concepts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#outcome-of-a-program">Outcome of a Program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functional-vs-object-oriented-programming">Functional vs. object-oriented programming</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#object-oriented-programming">Object oriented programming</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#your-scripting-programming-background-oct-2022">Your scripting/programming background (Oct 2022)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#different-types-of-scientific-software">Different types of Scientific software:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#software-development-life-cycle-sdlc">Software Development Life Cycle (SDLC)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-models">Basic models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#some-common-steps">Some common steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parts-from-the-life-cycle-models-in-this-course">Parts from the life cycle models in this course</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#planning-analysis-and-design">Planning: Analysis and design</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#top-down">Top-down</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bottom-up">Bottom-Up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#flowcharts-or-unified-modeling-language">Flowcharts or Unified Modeling Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pseudocode">Pseudocode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#source-version-control-and-collaboration">Source/version control and collaboration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-essence-of-version-control">The essence of version control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-we-typically-like-to-snapshot">What we typically like to snapshot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-version-control">Why version control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sharing-online">Sharing Online</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#remotes">Remotes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#collaboration">Collaboration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reproducibility-and-sharing">Reproducibility and sharing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reproducible-research">Reproducible research</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sharing-and-licensing-and-citations">Sharing and licensing and citations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#summary-of-introduction">Summary of Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sdlc.html">The Software Development Lifecycle (SDLC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flowcharts.html">Planning phase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecontrol.html">Source/version control (Git)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collab.html">Collaboration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reproducible.html">Reproducible research and sharing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sharing.html">Sharing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="group_exercise.html">Exercise in group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summary.html">Summary</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Programming formalism intro</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/intro.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h1>
+<div class="admonition-questions questions admonition">
+<p class="admonition-title">Questions</p>
+<ul class="simple">
+<li><p>What is the Purpose of Formalism in Computer Science?</p></li>
+<li><p>What is software development life cycle</p></li>
+<li><p>There seem to be many concepts in this course. What do they mean?</p></li>
+</ul>
+</div>
+<div class="admonition-objectives objectives admonition">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>We’ll give an introducton to the week</p></li>
+<li><p>We’ll give some introduction to concepts used in the course</p></li>
+<li><p>We’ll give some introduction to handy tools for the software developer</p></li>
+<li><p>We’ll try to set up the mindset to find the rest of the week interesting and useful!</p></li>
+</ul>
+</div>
+<div class="admonition-instructor-note instructor-note admonition">
+<p class="admonition-title">Instructor note</p>
+<ul class="simple">
+<li><p>Lecture 30 min</p></li>
+<li><p>Discussions 15 min</p></li>
+<li><p>To be much shortened</p></li>
+</ul>
+</div>
+<section id="what-is-software">
+<h2>What is software?<a class="headerlink" href="#what-is-software" title="Permalink to this headline"></a></h2>
+<p><em>Wikipedia</em></p>
+<ul class="simple">
+<li><p>set of computer programs and associated documentation and data.</p></li>
+<li><p>This is in contrast to hardware, from which the system is built and which actually performs the work.</p></li>
+<li><p>Application software</p>
+<ul>
+<li><p>Most users think of compilers, databases, and other “system software” as applications.</p></li>
+</ul>
+</li>
+<li><p>User-written software: End-user development</p>
+<ul>
+<li><p>Users create this software themselves and often overlook how important it is.</p></li>
+<li><p>Depending on how competently the user-written software has been integrated into default application packages, many users may not be aware of the distinction between the original packages, and what has been added by co-workers.</p></li>
+</ul>
+</li>
+</ul>
+<section id="some-concepts">
+<h3>Some concepts<a class="headerlink" href="#some-concepts" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>program</p></li>
+<li><p>script</p></li>
+<li><p>tool</p></li>
+<li><p>model</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>scripting vs programming</p>
+<ul>
+<li><p><strong>Python</strong> is an <strong>interpreted language</strong>. Python uses an interpreter to translate and run its code. Hence Python is a <strong>scripting language</strong>.</p></li>
+<li><p>Programs written in <strong>C++</strong> are <strong>compiled</strong> and then the compiled code runs to generate the output. C++ is thus a <strong>programming language</strong> and not a scripting language, since scripting languages are directly interpreted at run time and no prior compilation of the code takes place.</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We will not be very definite in the course in when to use scripting, program or tools</p>
+</div>
+</section>
+<section id="outcome-of-a-program">
+<h3>Outcome of a Program<a class="headerlink" href="#outcome-of-a-program" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Correct</p>
+<ul>
+<li><p>and flawless</p></li>
+</ul>
+</li>
+<li><p>Efficient</p>
+<ul>
+<li><p>Utilize the computer system’s resources</p></li>
+</ul>
+</li>
+<li><p>Reusable</p>
+<ul>
+<li><p>Development costs</p></li>
+<li><p>Finished components</p></li>
+<li><p>Lower development costs</p></li>
+<li><p>Faster</p></li>
+<li><p>Higher quality</p></li>
+<li><p>Requires general</p></li>
+<li><p>packaging technology</p></li>
+</ul>
+</li>
+<li><p>Changeable</p>
+<ul>
+<li><p>Maintenance cost</p>
+<ul>
+<li><p>Fix errors, bugs</p></li>
+<li><p>Adapt to new requirements</p></li>
+<li><p>Independent modules</p></li>
+<li><p>Encapsulation/information hiding</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="functional-vs-object-oriented-programming">
+<h3>Functional vs. object-oriented programming<a class="headerlink" href="#functional-vs-object-oriented-programming" title="Permalink to this headline"></a></h3>
+<section id="object-oriented-programming">
+<h4>Object oriented programming<a class="headerlink" href="#object-oriented-programming" title="Permalink to this headline"></a></h4>
+<ul class="simple">
+<li><p>Object-oriented (OO) programming is</p>
+<ul>
+<li><p>a mindset of mimicing the real-world as:</p></li>
+<li><p>entities (<code class="docutils literal notranslate"><span class="pre">objects</span></code>) that are different</p></li>
+<li><p>or share attributes with each-other (within a <code class="docutils literal notranslate"><span class="pre">class</span></code>)</p></li>
+<li><p>info-hiding mindset…</p></li>
+</ul>
+</li>
+</ul>
+<p class="plantuml">
+<img src="_images/plantuml-5b769f0366b31babe6ee19c6962a68c77928d8e8.png" alt="&#64;startuml
+class Elevator{
+  direction : String
+  floor : Integer
+  
+  void goto_floor()
+  void stop()
+  void which_floor()
+}
+&#64;enduml"/>
+</p>
+<p class="plantuml">
+<img src="_images/plantuml-5ff4c87960606fc0143f547eabb9e7e7cbe5e997.png" alt="&#64;startuml
+object elevator1{
+direction=&quot;up&quot;
+floor=2
+}
+object elevator2{
+direction=&quot;rest&quot;
+floor=5
+}
+
+&#64;enduml
+"/>
+</p>
+<ul class="simple">
+<li><p>Functional programming is</p>
+<ul>
+<li><p>more classical as it is more focused on the algorithms</p></li>
+<li><p>keys are functions</p></li>
+<li><p>modules: a way to gather functions with similar functionality)</p></li>
+</ul>
+</li>
+<li><p>Also other…</p></li>
+</ul>
+<p>At its simplest, functional programming uses immutable data to tell the program exactly what to do. Object-oriented programming tells the program how to achieve results through objects altering the program’s state. Both paradigms can be used to create elegant code.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>More on Wednesday</p>
+</div>
+<ul class="simple">
+<li><p>Object-oriented (built-in classes)</p>
+<ul>
+<li><p>C++</p></li>
+<li><p>Java</p></li>
+<li><p>Python</p></li>
+<li><p>Julia</p></li>
+</ul>
+</li>
+<li><p>OO features</p>
+<ul>
+<li><p>Fortran 2003</p></li>
+<li><p>MATLAB</p></li>
+<li><p>Perl</p></li>
+<li><p>PHP</p></li>
+</ul>
+</li>
+<li><p>OO object-based (but not class-based)</p>
+<ul>
+<li><p>Javascript</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="your-scripting-programming-background-oct-2022">
+<h3>Your scripting/programming background (Oct 2022)<a class="headerlink" href="#your-scripting-programming-background-oct-2022" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Python	86%</p></li>
+<li><p>Bash		80%</p></li>
+<li><p>R		42%</p></li>
+<li><p>C++		14%</p></li>
+<li><p>FORTRAN	14%</p></li>
+<li><p>C		12%</p></li>
+<li><p>Julia 		5%</p></li>
+<li><p>JAVA		3.5%</p></li>
+<li><p>Perl		3.5%</p></li>
+<li><p>MATLAB	3.5 %</p></li>
+<li><p>HTML		3.5%</p></li>
+<li><p>Javascript	3.5 %</p></li>
+<li><p>Rest		1 person each</p>
+<ul>
+<li><p>AWK</p></li>
+<li><p>PHP</p></li>
+<li><p>Groovy</p></li>
+<li><p>SQL</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="different-types-of-scientific-software">
+<h3>Different types of Scientific software:<a class="headerlink" href="#different-types-of-scientific-software" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>analysis of data</p>
+<ul>
+<li><p>statistics</p></li>
+<li><p>figures</p></li>
+<li><p>visualization</p></li>
+</ul>
+</li>
+<li><p>tools for process data</p>
+<ul>
+<li><p>refining data (formatting)</p></li>
+<li><p>bioinformatics</p></li>
+</ul>
+</li>
+<li><p>workflows</p></li>
+<li><p>modelling (mimic the reality)
+- simulations time-varying bahvour of a system
+- mathematical models of relationships among variables in a system</p></li>
+<li><p>decision assistance</p></li>
+</ul>
+<div class="admonition-discussion discussion attention admonition">
+<p class="admonition-title">Discussion</p>
+<p>What experience have you had?</p>
+<ul class="simple">
+<li><p>Use HackMD</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="software-development-life-cycle-sdlc">
+<h2>Software Development Life Cycle (SDLC)<a class="headerlink" href="#software-development-life-cycle-sdlc" title="Permalink to this headline"></a></h2>
+<section id="basic-models">
+<h3>Basic models<a class="headerlink" href="#basic-models" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>waterfall</p>
+<ol class="arabic simple">
+<li><p>Requirements</p></li>
+<li><p>Analysis and design</p></li>
+<li><p>Development</p></li>
+<li><p>Test</p></li>
+<li><p>Development and maintenance</p></li>
+</ol>
+</li>
+<li><p>Spiral model: iterating waterfalls, quadrants</p>
+<ul>
+<li><p>Planning: reqs, identification: analysis</p></li>
+<li><p>Risk analysis: build prototypes to identify risks</p></li>
+<li><p>Engineering: software implementation</p></li>
+<li><p>Evaluation: stakeholder review, feedback, plan next iteration
+Each lab is new cycle: prototype –&gt; RC –&gt; Launch
+Risk driven</p></li>
+</ul>
+</li>
+</ul>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/spiral-1-1024x945.jpg"><img alt="Spiral" src="_images/spiral-1-1024x945.jpg" style="width: 50%;" /></a>
+</figure>
+<ul class="simple">
+<li><p>Agile developing</p>
+<ul>
+<li><p>Division of tasks into <strong>short phases of work</strong> and frequent <strong>reassessment</strong> and adaptation of plans.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="some-common-steps">
+<h3>Some common steps<a class="headerlink" href="#some-common-steps" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Planning</p>
+<ul>
+<li><p>Analysis and design</p></li>
+</ul>
+</li>
+<li><p>Development</p>
+<ul>
+<li><p>Source control</p></li>
+<li><p>Algorithms</p></li>
+<li><p>Optimization</p>
+<ul>
+<li><p>Parallelism</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Test</p>
+<ul>
+<li><p>Tests</p></li>
+<li><p>Test-drive development</p></li>
+</ul>
+</li>
+<li><p>Development and maintenance</p>
+<ul>
+<li><p>Documentation</p></li>
+<li><p>Reproducibility and sharing</p></li>
+</ul>
+</li>
+<li><p>Iterations</p></li>
+</ul>
+<p>More about life cycles in next session and Day 3</p>
+</section>
+<section id="parts-from-the-life-cycle-models-in-this-course">
+<h3>Parts from the life cycle models in this course<a class="headerlink" href="#parts-from-the-life-cycle-models-in-this-course" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p><strong>Day1</strong> Intro</p>
+<ul>
+<li><p>SDLC</p></li>
+<li><p>Planning phase</p>
+<ul>
+<li><p>Pseudocode and flowcharts</p></li>
+</ul>
+</li>
+<li><p>Source/version control</p></li>
+<li><p>Collaboration</p></li>
+<li><p>Reproducible research and sharing</p>
+<ul>
+<li><p>Personal use to general use</p></li>
+<li><p>Pependencies</p></li>
+<li><p>Sharing</p></li>
+<li><p>Licensing</p></li>
+</ul>
+</li>
+<li><p>Documentation</p></li>
+</ul>
+</li>
+<li><p><strong>Day2</strong> Algorithms+data structures</p>
+<ul>
+<li><p>intro</p></li>
+<li><p>storing</p></li>
+<li><p>searching for things</p></li>
+<li><p>sorting</p></li>
+<li><p>BLAST</p></li>
+<li><p>exercises</p></li>
+</ul>
+</li>
+<li><p><strong>Day3</strong> Paradigms: design patterns, modular code</p>
+<ul>
+<li><p>How?</p></li>
+<li><p>Programming paradigms</p>
+<ul>
+<li><p>SDLC and the models for the development process</p></li>
+<li><p>overview</p></li>
+</ul>
+</li>
+<li><p>Modular programming</p>
+<ul>
+<li><p>design patterns introduction to element of reusable software modules</p></li>
+<li><p>what is module</p></li>
+<li><p>common interface design</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Day4</strong> TDD, testing</p>
+<ul>
+<li><p>first look</p></li>
+<li><p>types of tests</p></li>
+<li><p>TDD in practice (afternoon )</p>
+<ul>
+<li><p>Testing in Python with pytest</p></li>
+<li><p>Automating testing with Github Actions</p></li>
+<li><p>Putting it all together</p></li>
+<li><p>“Advanced” topics</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Day5</strong> Optimization</p></li>
+</ul>
+</section>
+</section>
+<section id="planning-analysis-and-design">
+<h2>Planning: Analysis and design<a class="headerlink" href="#planning-analysis-and-design" title="Permalink to this headline"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>“If I had nine hours to chop down a tree, I’d spend the first six sharpening my axe.</p>
+<ul class="simple">
+<li><p>Modeling sharpens your axe since it helps you think about what you’re going to build, how to seek feedback, and where to make improvements. It prepares you to build the real thing to reduce any potential risk of failure. “</p></li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Planning step is to …</p>
+<ul>
+<li><p>get an overview of the project/program.</p></li>
+<li><p>help planning writing the code</p></li>
+<li><p>identify parts needed</p></li>
+</ul>
+</li>
+<li><p>Can be devided into analysis and design</p></li>
+<li><p>Analysis part is to state the problem and define inputs and outputs</p>
+<ul>
+<li><p>graphical tools like UML</p></li>
+<li><p>text</p></li>
+<li><p>objects in OOP</p></li>
+</ul>
+</li>
+<li><p>Design phase to find out the specific algorithms needed</p>
+<ul>
+<li><p>pseudocode+UML</p></li>
+<li><p>classes in OOP</p></li>
+<li><p>functions/modules in functional programming</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="top-down">
+<h3>Top-down<a class="headerlink" href="#top-down" title="Permalink to this headline"></a></h3>
+<ol class="arabic simple">
+<li><p>Clearly state whole problem</p></li>
+<li><p>Define inputs and outputs</p></li>
+<li><p>Design the algorithm with <code class="docutils literal notranslate"><span class="pre">pseudocode</span></code></p></li>
+<li><p>Turn the algorithm into specific language statements</p></li>
+<li><p>Test the resulting program</p></li>
+</ol>
+<p class="plantuml">
+<img src="_images/plantuml-70479487badbce35726f9cf98df2dde82a7e2abd.png" alt="&#64;startuml
+start
+:Clearly state whole problem;
+:Define inputs and outputs;
+:Design the algorithm with `pseudocode`'
+  - Decomposition
+  - Stepwise refinement;
+:Turn the algorithm into specific language statements;
+:Test the resulting program;
+
+stop
+
+&#64;enduml"/>
+</p>
+</section>
+<section id="bottom-up">
+<h3>Bottom-Up<a class="headerlink" href="#bottom-up" title="Permalink to this headline"></a></h3>
+<p>Start with parts first and develop a bigger organization with time.</p>
+<div class="admonition-discussion discussion attention admonition">
+<p class="admonition-title">Discussion</p>
+<p>How do you program? Put “o” on you choice</p>
+<ul class="simple">
+<li><p>Top-down</p></li>
+<li><p>Bottom-up</p></li>
+</ul>
+</div>
+</section>
+<section id="flowcharts-or-unified-modeling-language">
+<h3>Flowcharts or Unified Modeling Language<a class="headerlink" href="#flowcharts-or-unified-modeling-language" title="Permalink to this headline"></a></h3>
+<p class="plantuml">
+<img src="_images/plantuml-53888ee32668048c14ed4f74c4835d3b61da6bdd.png" alt="&#64;startuml
+start
+if (stuff) then (true) 
+   :action 2;
+endif
+
+stop
+&#64;enduml"/>
+</p>
+</section>
+<section id="pseudocode">
+<h3>Pseudocode<a class="headerlink" href="#pseudocode" title="Permalink to this headline"></a></h3>
+<p><strong>Example</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  algorithm ford-fulkerson is
+    input: Graph G with flow capacity c, 
+           source node s, 
+           sink node t
+    output: Flow f such that f is maximal from s to t
+
+    (Note that f(u,v) is the flow from node u to node v, and c(u,v) is the flow capacity from node u to node v)
+
+    for each edge (u, v) in GE do
+        f(u, v) ← 0
+        f(v, u) ← 0
+
+    while there exists a path p from s to t in the residual network Gf do
+        let cf be the flow capacity of the residual network Gf
+        cf(p) ← min{cf(u, v) | (u, v) in p}
+        for each edge (u, v) in p do
+            f(u, v) ←  f(u, v) + cf(p)
+            f(v, u) ← −f(u, v)
+
+    return f
+</pre></div>
+</div>
+<div class="admonition-objectives objectives admonition">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://uppmax.github.io/programming_formalism_intro/flowcharts.html">Planning phase section</a> aims to</p>
+<ul>
+<li><p>Introduce flowcharts and UML expressions</p></li>
+<li><p>Get into UML coding with PlantUML</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="source-version-control-and-collaboration">
+<h2>Source/version control and collaboration<a class="headerlink" href="#source-version-control-and-collaboration" title="Permalink to this headline"></a></h2>
+<section id="the-essence-of-version-control">
+<h3>The essence of version control<a class="headerlink" href="#the-essence-of-version-control" title="Permalink to this headline"></a></h3>
+<p>Summarized from <a class="reference external" href="https://coderefinery.github.io/git-intro/motivation/">Code refinery</a></p>
+<ul class="simple">
+<li><p>System which records snapshots of a project</p></li>
+<li><p>Implements branching:</p>
+<ul>
+<li><p>You can work on several feature branches and switch between them</p></li>
+<li><p>Different people can work on the same code/project without interfering</p></li>
+<li><p>You can experiment with an idea and discard it if it turns out to be a bad idea</p></li>
+</ul>
+</li>
+<li><p>Implements merging:</p>
+<ul>
+<li><p>Person A and B’s simultaneous work can be easily combined</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="what-we-typically-like-to-snapshot">
+<h3>What we typically like to snapshot<a class="headerlink" href="#what-we-typically-like-to-snapshot" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Software (this is how it started but Git/GitHub can track a lot more)</p></li>
+<li><p>Scripts</p></li>
+<li><p>Documents (plain text files much better suitable than Word documents)</p></li>
+<li><p>Manuscripts (Git is great for collaborating/sharing LaTeX or Quarto manuscripts)</p></li>
+<li><p>Configuration files</p></li>
+<li><p>Website sources</p></li>
+<li><p>tool</p></li>
+</ul>
+</section>
+<section id="why-version-control">
+<h3>Why version control<a class="headerlink" href="#why-version-control" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Roll-back functionality</p>
+<ul>
+<li><p>Mistakes happen - without recorded snapshots you cannot easily undo mistakes and <strong>go back to a working version</strong>.</p></li>
+</ul>
+</li>
+<li><p>Branching</p>
+<ul>
+<li><p>Often you need to work on <strong>several issues/features in one code</strong> - without branching this can be messy and confusing.</p></li>
+<li><p>You can simulate branching by copying the entire code to multiple places but also this will be messy and confusing.</p></li>
+</ul>
+</li>
+<li><p>Collaboration</p>
+<ul>
+<li><p>With version control, none of these are needed anymore (or have much simpler answers):</p>
+<ul>
+<li><p><em>“I will just finish my work and then you can start with your changes.”</em></p></li>
+<li><p><em>“Can you please send me the latest version?”</em></p></li>
+<li><p><em>“You never got the code I send by email? Maybe the spam filter marked it as malicious?”</em></p></li>
+<li><p><em>“Where is the latest version?”</em></p></li>
+<li><p><em>“Which version are you using?”</em></p></li>
+</ul>
+</li>
+<li><p><em>“Which version have the authors used in the paper I am trying to reproduce?”</em></p></li>
+</ul>
+</li>
+<li><p>Reproducibility</p>
+<ul>
+<li><p>How do you indicate which version of your code you have used in your paper?</p></li>
+<li><p>When you find a bug, how do you know <strong>when precisely</strong> this bug was introduced
+(Are published results affected? Do you need to inform collaborators or users of your code?).</p></li>
+</ul>
+</li>
+<li><p>Compare with Dropbox or Google Drive</p>
+<ul>
+<li><p>Document/code is in one place, no need to email snapshots.</p></li>
+<li><p>How can you use an old version? Possible to get old versions but in a much less useful way - snapshots of files, not directories.</p></li>
+<li><p>What if you want to work on multiple versions at the same time? Do you make a copy? How do you merge copies?</p></li>
+<li><p>What if you don’t have internet?</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition-why-git discussion attention admonition">
+<p class="admonition-title">Why Git?</p>
+<p>We will use <a class="reference external" href="https://git-scm.com">Git</a> to record snapshots of our work:</p>
+<ul class="simple">
+<li><p><strong>Easy to set up</strong>: no server needed.</p></li>
+<li><p><strong>Very popular</strong>: chances are high you will need to contribute to somebody else’s code which is tracked with Git.</p></li>
+<li><p><strong>Distributed</strong>: good backup, no single point of failure, you can track and
+clean-up changes offline, simplifies collaboration model for open-source
+projects.</p></li>
+<li><p>Important <strong>platforms</strong> such as <a class="reference external" href="https://github.com">GitHub</a>, <a class="reference external" href="https://gitlab.com">GitLab</a>, and <a class="reference external" href="https://bitbucket.org">Bitbucket</a>
+build on top of Git.</p></li>
+</ul>
+<p>However, any version control is better than no version control and it is OK to prefer a different tool than Git.</p>
+<p>Other tools:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://subversion.apache.org">Subversion</a></p></li>
+<li><p><a class="reference external" href="https://www.mercurial-scm.org">Mercurial</a></p></li>
+<li><p><a class="reference external" href="https://pijul.org/">Pijul</a></p></li>
+</ul>
+</div>
+</section>
+<section id="sharing-online">
+<h3>Sharing Online<a class="headerlink" href="#sharing-online" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>What if the hard disk fails?</p></li>
+<li><p>What if somebody steals my laptop?</p></li>
+<li><p>How can we collaborate with others across the web?</p></li>
+</ul>
+<section id="remotes">
+<h4>Remotes<a class="headerlink" href="#remotes" title="Permalink to this headline"></a></h4>
+<p>To store your git data on another server, you use remotes. A remote is a repository on its own, with its own branches We can push changes to the remote and pull from the remote.</p>
+<p>You might use remotes to:</p>
+<ul class="simple">
+<li><p>Back up your own work.</p></li>
+<li><p>To collaborate with other people.</p></li>
+</ul>
+<p>There are different types of remotes:</p>
+<ul class="simple">
+<li><p>If you have a server you can ssh to, you can use that as a remote.</p></li>
+<li><p><a class="reference external" href="https://github.com">GitHub</a> is a popular, closed-source commercial site.</p></li>
+<li><p><a class="reference external" href="https://about.gitlab.com">GitLab</a> is a popular, open-core
+commercial site.  Many universities have their own private GitLab servers
+set up.</p></li>
+<li><p><a class="reference external" href="https://bitbucket.org">Bitbucket</a> is yet another popular commercial site.</p></li>
+<li><p>Another option is <a class="reference external" href="https://notabug.org">NotABug</a></p></li>
+</ul>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p><strong>Also workflows!</strong></p>
+</div>
+<div class="admonition-objectives objectives admonition">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://uppmax.github.io/programming_formalism_intro/sourcecontrol.html">Source and version control</a> aims to</p>
+<ul>
+<li><p>Introduce git and github</p></li>
+<li><p>Get into working with git</p></li>
+<li><p>Get into using GitHub as a remote repository</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+<section id="collaboration">
+<h2>Collaboration<a class="headerlink" href="#collaboration" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Let’s say that someone has given you access to a repository online and you want to contribute to it.</p></li>
+<li><p>It is quite easy to make a copy and send a change back.</p></li>
+<li><p>First, we do this a relatively simple way: get repository, make a change
+locally, and send the change directly back.</p></li>
+<li><p>Then, we make a “pull request” that allows a review.</p></li>
+<li><p>Once we know how code review works, we will be able to propose changes
+to repositories of others and review changes submitted by external
+contributors.</p></li>
+</ul>
+<div class="admonition-objectives objectives admonition">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://uppmax.github.io/programming_formalism_intro/collab.html">Collaboration</a> aims to</p>
+<ul>
+<li><p>Get into working more with GitHub for collaboration</p></li>
+<li><p>Centralized workflow</p></li>
+<li><p>Forking</p></li>
+<li><p>Contributing to other’s projects</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="reproducibility-and-sharing">
+<h2>Reproducibility and sharing<a class="headerlink" href="#reproducibility-and-sharing" title="Permalink to this headline"></a></h2>
+<section id="reproducible-research">
+<h3>Reproducible research<a class="headerlink" href="#reproducible-research" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Have you ever spent days trying to repeat the results that took you hours to do the first time last week?  - Or you have to do paper revisions, but you just can’t get the results to match up? Nothing is a worse feeling - either for you or for science itself.</p></li>
+</ul>
+<p>In this lesson we will discuss different methods and tools for better reproducibility in research software and data. We will demonstrate how version control, workflows, containers, and package managers can be used to record reproducible environments and computational steps.</p>
+<div class="admonition-objectives objectives admonition">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://uppmax.github.io/programming_formalism_intro/reproducible.html">Reproducibility and sharing</a> aims to</p>
+<ul>
+<li><p>Get a short overview of recording dependencies</p></li>
+<li><p>Get short intro to tools:</p>
+<ul>
+<li><p>Pip and PyPI</p></li>
+<li><p>Conda</p></li>
+<li><p>Environments</p></li>
+<li><p>Tools for other languages than Python</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="sharing-and-licensing-and-citations">
+<h3>Sharing and licensing and citations<a class="headerlink" href="#sharing-and-licensing-and-citations" title="Permalink to this headline"></a></h3>
+<div class="admonition-discussion discussion attention admonition">
+<p class="admonition-title">Discussion</p>
+<ul class="simple">
+<li><p>One-time usage to distributed package</p></li>
+</ul>
+</div>
+<div class="admonition-objectives objectives admonition">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://uppmax.github.io/programming_formalism_intro/reproducible.html">Reproducibility and sharing</a> aims to</p>
+<ul>
+<li><p>Introduce reproducibility and sharing, licensing and citation</p></li>
+<li><p>Get into thinking about dependencies and solutions</p></li>
+<li><p>Get into choosing license, citation and DOI</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Documentation comes in different forms - what <em>is</em> documentation?</p>
+<ul class="simple">
+<li><p><strong>Tutorials</strong>: learning-oriented, allows the newcomer to get started</p></li>
+<li><p><strong>How-to guides</strong>: goal-oriented, shows how to solve a specific problem</p></li>
+<li><p><strong>Explanation</strong>: understanding-oriented, explains a concept</p></li>
+<li><p><strong>Reference</strong>: information-oriented, describes the machinery
+<strong>Not to forget</strong></p></li>
+<li><p>Project documentation:</p>
+<ul>
+<li><p>requirements: what is the goal of the software, risks, platforms
+the analysis: pseusocode and UML</p></li>
+<li><p>risk analysis</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><strong>There is no one size fits all</strong>: often for small projects a <code class="docutils literal notranslate"><span class="pre">README.md</span></code> or
+<code class="docutils literal notranslate"><span class="pre">README.rst</span></code> can be enough (more about these formats later).</p>
+<div class="admonition-objectives objectives admonition">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://uppmax.github.io/programming_formalism_intro/documentation.html">Documentation</a> aims to</p>
+<ul>
+<li><p>Introduce motivation for documentation</p></li>
+<li><p>Get tips for in-code documentation</p></li>
+<li><p>Get tips for README files</p></li>
+<li><p>Get tips for full documentation and tutorials</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline"></a></h2>
+<p>Does it work for all legal input data sets??</p>
+<ol class="arabic simple">
+<li><p>Unit testing</p></li>
+<li><p>Integration tests</p></li>
+</ol>
+<p><strong>Typical testing process</strong></p>
+</section>
+<section id="summary-of-introduction">
+<h2>Summary of Introduction<a class="headerlink" href="#summary-of-introduction" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Now after the overview you are ready to dig deeper in the topics and try it out yourself!</p></li>
+</ul>
+<div class="admonition-keypoints keypoints admonition">
+<p class="admonition-title">Keypoints</p>
+<ul class="simple">
+<li><p>Software development is both series of steps:</p>
+<ol class="arabic simple">
+<li><p>Requirements</p></li>
+<li><p>Analysis and design</p></li>
+<li><p>Development</p></li>
+<li><p>Test</p></li>
+<li><p>Development and maintenance</p></li>
+</ol>
+</li>
+<li><p>… and iteration of these</p></li>
+<li><p>Planning for reproducibility, modularity and documentation should be started in the beginning</p></li>
+<li><p>Tools for the developer</p>
+<ul>
+<li><p>Planning: UML and pseudocode</p></li>
+<li><p>Development iteration: git</p></li>
+<li><p>Testing: test functions (Covered on Thursday)</p></li>
+<li><p>Collaboration: GitHub, licenses, citation</p></li>
+<li><p>Documentation: READMEs and e.g. sphinx</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Programming formalisms — Introduction day" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sdlc.html" class="btn btn-neutral float-right" title="The Software Development Lifecycle (SDLC)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, UPPMAX.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

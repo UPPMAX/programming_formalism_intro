@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planning phase &mdash; Programming formalism intro 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/sphinx_lesson.css" type="text/css" />
+      <link rel="stylesheet" href="_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script src="_static/minipres.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Source/version control (Git)" href="sourcecontrol.html" />
+    <link rel="prev" title="The Software Development Lifecycle (SDLC)" href="sdlc.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Programming formalism intro
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Lesson:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sdlc.html">The Software Development Lifecycle (SDLC)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Planning phase</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-planning-steps">The planning steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#analysis-step">Analysis step</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#design-step">Design step</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unified-modeling-language">Unified Modeling Language</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#design">Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-blocks">Building blocks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#diagrams">Diagrams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#class">Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sequence">Sequence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#activity">Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#syntax-for-algorithm-flowchart">Syntax for algorithm flowchart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other">Other</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#use-case">Use case</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#object">Object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#component">Component</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deployment">Deployment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#state">State</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#timing">Timing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tools">Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#plantuml">PlantUML</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#syntax">Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#test-yourself">Test yourself!</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pseudocode">Pseudocode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mathematical-style-pseudocode">Mathematical style pseudocode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecontrol.html">Source/version control (Git)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collab.html">Collaboration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reproducible.html">Reproducible research and sharing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sharing.html">Sharing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="group_exercise.html">Exercise in group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summary.html">Summary</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Programming formalism intro</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Planning phase</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/flowcharts.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="planning-phase">
+<h1>Planning phase<a class="headerlink" href="#planning-phase" title="Permalink to this headline"></a></h1>
+<div class="admonition-questions questions admonition">
+<p class="admonition-title">Questions</p>
+<ul class="simple">
+<li><p>How to use UML and Pseudocode?</p></li>
+<li><p>Can I learn it?</p></li>
+</ul>
+</div>
+<div class="admonition-objectives objectives admonition">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>We will give an overview of UML diagrams</p>
+<ul>
+<li><p>learn when to use</p></li>
+<li><p>learn basic notations</p></li>
+<li><p>(Test with graphical interface)</p></li>
+<li><p>(Test with the script based plantUML)</p></li>
+</ul>
+</li>
+<li><p>We will see some examples of Pseudocode</p></li>
+</ul>
+</div>
+<div class="admonition-instructor-note instructor-note admonition">
+<p class="admonition-title">Instructor note</p>
+<ul class="simple">
+<li><p>Lecture + Discussions 45 min</p></li>
+<li><p>Perhaps OK length</p></li>
+</ul>
+</div>
+<section id="the-planning-steps">
+<h2>The planning steps<a class="headerlink" href="#the-planning-steps" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>get an overview of the project/program.</p></li>
+<li><p>help planning writing the code</p></li>
+<li><p>identify parts needed</p></li>
+</ul>
+<p>Lifecycle steps, example</p>
+<ol class="arabic simple">
+<li><p>Plan/initiate</p></li>
+<li><p>Gather requirements</p></li>
+<li><p>Design</p></li>
+</ol>
+<p>or</p>
+<ol class="arabic simple">
+<li><p>Analysis</p></li>
+</ol>
+<ul class="simple">
+<li><p>to state the problem and define inputs and outputs</p>
+<ul>
+<li><p>graphical tools like UML</p></li>
+</ul>
+</li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Design</p></li>
+</ol>
+<ul class="simple">
+<li><p>to find out the specific algorithms needed</p>
+<ul>
+<li><p>pseudocode</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="analysis-step">
+<h2>Analysis step<a class="headerlink" href="#analysis-step" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>UML Diagrams</p>
+<ul>
+<li><p>Flowchart</p></li>
+</ul>
+</li>
+<li><p>Object-orientation programming</p>
+<ul>
+<li><p>Identify objects</p></li>
+</ul>
+</li>
+<li><p>Functional programming</p>
+<ul>
+<li><p>Identify functions</p></li>
+</ul>
+</li>
+<li><p>Text can also work here, describing the problem as a whole</p></li>
+</ul>
+</section>
+<section id="design-step">
+<h2>Design step<a class="headerlink" href="#design-step" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Pseudocode</p></li>
+<li><p>Object-orientation programming</p>
+<ul>
+<li><p>Identify classes that objects can belong to</p></li>
+<li><p>UML</p></li>
+</ul>
+</li>
+<li><p>Functional programming</p>
+<ul>
+<li><p>Identify algorithms</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="unified-modeling-language">
+<h2>Unified Modeling Language<a class="headerlink" href="#unified-modeling-language" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>UML is not a programming language. It’s a graphical notation for drawing diagrams to visualize object oriented systems.</p></li>
+<li><p>UML includes over a dozen different types of structural and behavioral diagrams.</p></li>
+<li><p>UML has been marketed for many contexts.</p></li>
+<li><p>Some problems (Wikipedia):</p>
+<ul>
+<li><p>It has been treated, at times, as a design silver bullet, which leads to problems.</p></li>
+<li><p>UML misuse includes overuse (designing every part of the system with it, which is unnecessary) and assuming that novices can design with it.</p></li>
+<li><p>It is considered a large language, with many constructs. Some people feel that UML’s size hinders learning (and therefore, using) it.</p></li>
+</ul>
+</li>
+</ul>
+<p>“These diagrams should be a quick, useful communication tool. A support system for your brain, not the other way around!”</p>
+<p>First iteration in planning can be paper or whiteboard
+Then there are benefits with digital tools</p>
+<section id="design">
+<h3>Design<a class="headerlink" href="#design" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>A way to visualize a system’s architectural blueprints in a diagram, including elements such as:</p>
+<ul>
+<li><p>any activities (jobs);</p></li>
+<li><p>individual components of the system;</p>
+<ul>
+<li><p>and how they can interact with other software components;</p></li>
+</ul>
+</li>
+<li><p>how the system will run;</p></li>
+<li><p>how entities interact with others (components and interfaces);</p></li>
+<li><p>external user interface.</p></li>
+</ul>
+</li>
+<li><p>Although originally intended for object-oriented design documentation, UML has been extended to a larger set of design documentation,and been found useful in many contexts.</p></li>
+</ul>
+</section>
+<section id="building-blocks">
+<h3>Building blocks<a class="headerlink" href="#building-blocks" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Things</p>
+<ul>
+<li><p>Structural</p>
+<ul>
+<li><p>Class</p></li>
+<li><p>Interface</p></li>
+<li><p>collaboration</p></li>
+<li><p>use case</p></li>
+<li><p>component</p></li>
+<li><p>node</p></li>
+</ul>
+</li>
+<li><p>Behavioral (dynamic)</p>
+<ul>
+<li><p>interaction</p></li>
+<li><p>state machine</p></li>
+</ul>
+</li>
+<li><p>Grouping</p>
+<ul>
+<li><p>packaging</p></li>
+</ul>
+</li>
+<li><p>Annotational</p>
+<ul>
+<li><p>Note</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Relationships</p>
+<ul>
+<li><p>Dependency</p></li>
+<li><p>association</p></li>
+<li><p>generalization</p></li>
+<li><p>realization</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="diagrams">
+<h3>Diagrams<a class="headerlink" href="#diagrams" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Structure</p>
+<ul>
+<li><p>Class</p></li>
+<li><p>Component</p></li>
+<li><p>Object</p></li>
+<li><p>Composite structure</p></li>
+<li><p>Package</p></li>
+<li><p>Deployment</p></li>
+</ul>
+</li>
+<li><p>Behavior</p>
+<ul>
+<li><p>Use case</p></li>
+<li><p>Activity</p></li>
+<li><p>State machine</p></li>
+<li><p>Interaction within/outside system</p>
+<ul>
+<li><p>Sequence</p></li>
+<li><p>Communication</p></li>
+<li><p>Timing</p></li>
+<li><p>Interaction overview</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="graphviz"><img src="_images/graphviz-a50b88e9590355351b65797e1087da496c0e8f25.png" alt="digraph{
+&quot;UML diagrams&quot;
+Structure, Behaviour
+&quot;UML diagrams&quot; -&gt; Structure
+&quot;UML diagrams&quot; -&gt; Behaviour
+Structure -&gt; Class, Component, Object, composite
+Behaviour -&gt; &quot;Use case&quot;, Activity, Interaction
+Interaction -&gt; Sequence, Communication, Timing, &quot;Interaction overview&quot;
+}" class="graphviz" /></div>
+</section>
+<section id="class">
+<h3>Class<a class="headerlink" href="#class" title="Permalink to this headline"></a></h3>
+<p>A diagram that shows the system classes and relationships between them.</p>
+<p class="plantuml">
+<img src="_images/plantuml-bec9316110d269105a524e63f8428de770e25b29.png" alt="&#64;startuml
+ class01 &lt;|-- class02
+ class03 *-- class04
+ class05 o-- class06
+
+ class01- class03 : knows &gt;
+ class class01 {
+    -var01 : Integer
+    Time : Date
+    #method01()
+    +get_var01()
+    {method}Without paranteces or Qualifiers
+ }
+ 
+ class class02 {
+    -var02 : Float
+    Time : Date
+    #method01()
+    +get_var02()
+    {method}Without paranteces or Qualifiers
+ }
+
+&#64;enduml
+"/>
+</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">@startuml</span>
+<span class="go">node foo</span>
+<span class="go">foo --&gt; bar : normal</span>
+<span class="go">foo --&gt; bar1 #line:red;line.bold;text:red  : red bold</span>
+<span class="go">foo --&gt; bar2 #green;line.dashed;text:green : green dashed </span>
+<span class="go">foo --&gt; bar3 #blue;line.dotted;text:blue   : blue dotted</span>
+<span class="go">@enduml</span>
+</pre></div>
+</div>
+<p class="plantuml">
+<img src="_images/plantuml-7afb192db5fe061e1219357dfdd8f0d90c7a6fef.png" alt="&#64;startuml
+class Car
+
+Driver - Car : drives &gt;
+Car *- Wheel : have 4 &gt;
+Car -- Person : &lt; owns
+&#64;enduml"/>
+</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">@startuml</span>
+<span class="go">class Car</span>
+
+<span class="go">Driver - Car : drives &gt;</span>
+<span class="go">Car *- Wheel : have 4 &gt;</span>
+<span class="go">Car -- Person : &lt; owns</span>
+<span class="go">@enduml</span>
+</pre></div>
+</div>
+</section>
+<section id="sequence">
+<h3>Sequence<a class="headerlink" href="#sequence" title="Permalink to this headline"></a></h3>
+<p>A diagram that shows the existence of Objects over time, and the Messages that pass between those Objects over time to carry out some behavior.</p>
+<p class="plantuml">
+<img src="_images/plantuml-b52ca22777e45eb820f4f7ed9bbeae34f0fcbcb0.png" alt="&#64;startuml
+user -&gt; (use PlantUML)
+
+note left of user
+   Hello!   
+end note
+&#64;enduml"/>
+</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">   </span>
+<span class="go">@startuml</span>
+<span class="go">user -&gt; (use PlantUML)</span>
+
+<span class="go">note left of user</span>
+<span class="go">   Hello!   </span>
+<span class="go">end note</span>
+<span class="go">@enduml</span>
+</pre></div>
+</div>
+<p class="plantuml">
+<img src="_images/plantuml-adbe6ec6b8cb0e531827ae38174c98606f6d8ae1.png" alt="&#64;startuml
+Alice -&gt; Bob: Authentication Request
+Bob --&gt; Alice: Authentication Response
+
+Alice -&gt; Bob: Another authentication Request
+Alice &lt;-- Bob: Another authentication Response
+&#64;enduml
+"/>
+</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">@startuml</span>
+<span class="go">Alice -&gt; Bob: Authentication Request</span>
+<span class="go">Bob --&gt; Alice: Authentication Response</span>
+
+<span class="go">Alice -&gt; Bob: Another authentication Request</span>
+<span class="go">Alice &lt;-- Bob: Another authentication Response</span>
+<span class="go">@enduml</span>
+</pre></div>
+</div>
+<p class="plantuml">
+<img src="_images/plantuml-d6f8781377235521f6ca2582781eee7f5d6e43dd.png" alt="&#64;startuml
+participant User
+
+User -&gt; A: DoWork
+activate A
+
+A -&gt; B: &lt;&lt; createRequest &gt;&gt;
+activate B
+
+B -&gt; C: DoWork
+activate C
+C --&gt; B: WorkDone
+destroy C
+
+B --&gt; A: RequestCreated
+deactivate B
+
+A -&gt; User: Done
+deactivate A
+&#64;enduml"/>
+</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">@startuml</span>
+<span class="go">participant User</span>
+
+<span class="go">User -&gt; A: DoWork</span>
+<span class="go">activate A</span>
+
+<span class="go">A -&gt; B: &lt;&lt; createRequest &gt;&gt;</span>
+<span class="go">activate B</span>
+
+<span class="go">B -&gt; C: DoWork</span>
+<span class="go">activate C</span>
+<span class="go">C --&gt; B: WorkDone</span>
+<span class="go">destroy C</span>
+
+<span class="go">B --&gt; A: RequestCreated</span>
+<span class="go">deactivate B</span>
+
+<span class="go">A -&gt; User: Done</span>
+<span class="go">deactivate A</span>
+<span class="go">@enduml</span>
+</pre></div>
+</div>
+</section>
+<section id="activity">
+<h3>Activity<a class="headerlink" href="#activity" title="Permalink to this headline"></a></h3>
+<p>A flowchart that shows the process and its correlating decisions, including an <strong>algorithm</strong>  or a business process.</p>
+<p class="plantuml">
+<img src="_images/plantuml-bb220877d7a41c34ec34ad563026550b1c288cf6.png" alt="&#64;startuml
+start
+
+if (Graphviz installed?) then (yes)
+  :process all\ndiagrams;
+else (no)
+  :process only
+  __sequence__ and __activity__ diagrams;
+endif
+
+stop
+&#64;enduml
+"/>
+</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">@startuml</span>
+
+<span class="go">start</span>
+
+<span class="go">if (Graphviz installed?) then (yes)</span>
+<span class="go">  :process all\ndiagrams;</span>
+<span class="go">else (no)</span>
+<span class="go">  :process only</span>
+<span class="go">  __sequence__ and __activity__ diagrams;</span>
+<span class="go">endif</span>
+
+<span class="go">stop</span>
+
+<span class="go">@enduml</span>
+</pre></div>
+</div>
+</section>
+<section id="syntax-for-algorithm-flowchart">
+<h3>Syntax for algorithm flowchart<a class="headerlink" href="#syntax-for-algorithm-flowchart" title="Permalink to this headline"></a></h3>
+<p>Start and stop</p>
+<p class="plantuml">
+<img src="_images/plantuml-4cf31c226cadce6573920e0ad89727a6c3e109f6.png" alt="&#64;startuml
+start
+stop
+&#64;enduml"/>
+</p>
+<p class="plantuml">
+<img src="_images/plantuml-9b7b116dfebad07dc29dd44b14a111a496c3763b.png" alt="&#64;startuml
+start
+:Hello world;
+:This is defined on
+several **lines**;
+stop
+&#64;enduml"/>
+</p>
+<p>Computation</p>
+<p>Input output</p>
+<p>Choice</p>
+<p>Direction of program flow
+Iterarative or counting llop</p>
+</section>
+<section id="other">
+<h3>Other<a class="headerlink" href="#other" title="Permalink to this headline"></a></h3>
+<section id="use-case">
+<h4>Use case<a class="headerlink" href="#use-case" title="Permalink to this headline"></a></h4>
+<p>A diagram that shows relations between Actors and Use Cases.</p>
+<p class="plantuml">
+<img src="_images/plantuml-04c69576cb62113ce1fb777a5ce2f41710234e50.png" alt="&#64;startuml
+left to right direction
+actor Guest as g
+package Professional {
+  actor Chef as c
+  actor &quot;Food Critic&quot; as fc
+}
+package Restaurant {
+  usecase &quot;Eat Food&quot; as UC1
+  usecase &quot;Pay for Food&quot; as UC2
+  usecase &quot;Drink&quot; as UC3
+  usecase &quot;Review&quot; as UC4
+}
+fc --&gt; UC4
+g --&gt; UC1
+g --&gt; UC2
+g --&gt; UC3
+&#64;enduml"/>
+</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">@startuml</span>
+<span class="go">left to right direction</span>
+<span class="go">actor Guest as g</span>
+<span class="go">package Professional {</span>
+<span class="go">  actor Chef as c</span>
+<span class="go">  actor &quot;Food Critic&quot; as fc</span>
+<span class="go">}</span>
+<span class="go">package Restaurant {</span>
+<span class="go">  usecase &quot;Eat Food&quot; as UC1</span>
+<span class="go">  usecase &quot;Pay for Food&quot; as UC2</span>
+<span class="go">  usecase &quot;Drink&quot; as UC3</span>
+<span class="go">  usecase &quot;Review&quot; as UC4</span>
+<span class="go">}</span>
+<span class="go">fc --&gt; UC4</span>
+<span class="go">g --&gt; UC1</span>
+<span class="go">g --&gt; UC2</span>
+<span class="go">g --&gt; UC3</span>
+<span class="go">@enduml</span>
+</pre></div>
+</div>
+</section>
+<section id="object">
+<h4>Object<a class="headerlink" href="#object" title="Permalink to this headline"></a></h4>
+<p>Object diagrams are derived from class diagrams so object diagrams are dependent upon class diagrams.</p>
+<p>Object diagrams represent an instance of a class diagram. The basic concepts are similar for class diagrams and object diagrams. Object diagrams also represent the static view of a system but this static view is a snapshot of the system at a particular moment.</p>
+<p class="plantuml">
+<img src="_images/plantuml-0b304e2e6df40afbf6f10adf7154f977622e3062.png" alt="&#64;startuml
+object Object01
+object Object02
+object Object03
+object Object04
+object Object05
+object Object06
+object Object07
+object Object08
+
+Object01 &lt;|-- Object02
+Object03 *-- Object04
+Object05 o-- &quot;4&quot; Object06
+Object07 .. Object08 : some labels
+&#64;enduml
+"/>
+</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</section>
+<section id="component">
+<h4>Component<a class="headerlink" href="#component" title="Permalink to this headline"></a></h4>
+<p>A diagram that shows relations between various Components and Interfaces.</p>
+<p class="plantuml">
+<img src="_images/plantuml-45f11b1e4421001893e32276444253bc04c7fbcd.png" alt="&#64;startuml
+package &quot;Some Group&quot; {
+  HTTP - [First Component]
+  [Another Component]
+}
+
+node &quot;Other Groups&quot; {
+  FTP - [Second Component]
+  [First Component] --&gt; FTP
+}
+
+cloud {
+  [Example 1]
+}
+
+
+database &quot;MySql&quot; {
+  folder &quot;This is my folder&quot; {
+    [Folder 3]
+  }
+  frame &quot;Foo&quot; {
+    [Frame 4]
+  }
+}
+
+
+[Another Component] --&gt; [Example 1]
+[Example 1] --&gt; [Folder 3]
+[Folder 3] --&gt; [Frame 4]
+&#64;enduml
+"/>
+</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</section>
+<section id="deployment">
+<h4>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline"></a></h4>
+<p>A diagram that shows relations between various Processors.</p>
+<p>Deployment diagrams are used to visualize the topology of the physical components of a system, where the software components are deployed.</p>
+<p>Deployment diagrams are used to describe the static deployment view of a system. Deployment diagrams consist of nodes and their relationships.</p>
+<p class="plantuml">
+<img src="_images/plantuml-58ede6081949b0abb5cbf2e0c2df3af319585762.png" alt="&#64;startuml
+node foo
+foo --&gt; bar : normal
+foo --&gt; bar1 #line:red;line.bold;text:red  : red bold
+foo --&gt; bar2 #green;line.dashed;text:green : green dashed 
+foo --&gt; bar3 #blue;line.dotted;text:blue   : blue dotted
+&#64;enduml
+"/>
+</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">@startuml</span>
+<span class="go">node foo</span>
+<span class="go">foo --&gt; bar : normal</span>
+<span class="go">foo --&gt; bar1 #line:red;line.bold;text:red  : red bold</span>
+<span class="go">foo --&gt; bar2 #green;line.dashed;text:green : green dashed </span>
+<span class="go">foo --&gt; bar3 #blue;line.dotted;text:blue   : blue dotted</span>
+<span class="go">@enduml</span>
+</pre></div>
+</div>
+</section>
+<section id="state">
+<h4>State<a class="headerlink" href="#state" title="Permalink to this headline"></a></h4>
+<p>A diagram that shows States of a system or subsystem, Transitions between States, and the Events that cause the Transitions.</p>
+<p class="plantuml">
+<img src="_images/plantuml-0a08124e212d43e1b6389e31b85d47254b646144.png" alt="&#64;startuml
+scale 600 width
+
+[*] -&gt; State1
+State1 --&gt; State2 : Succeeded
+State1 --&gt; [*] : Aborted
+State2 --&gt; State3 : Succeeded
+State2 --&gt; [*] : Aborted
+state State3 {
+  state &quot;Accumulate Enough Data\nLong State Name&quot; as long1
+  long1 : Just a test
+  [*] --&gt; long1
+  long1 --&gt; long1 : New Data
+  long1 --&gt; ProcessData : Enough Data
+}
+State3 --&gt; State3 : Failed
+State3 --&gt; [*] : Succeeded / Save Result
+State3 --&gt; [*] : Aborted
+
+&#64;enduml
+"/>
+</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</section>
+<section id="timing">
+<h4>Timing<a class="headerlink" href="#timing" title="Permalink to this headline"></a></h4>
+<p>show timing constraints of a system in a given time frame</p>
+<p class="plantuml">
+<img src="_images/plantuml-960ff98e08fa14fd55e5ba91ca8ad9738f948ada.png" alt="&#64;startuml
+robust &quot;DNS Resolver&quot; as DNS
+robust &quot;Web Browser&quot; as WB
+concise &quot;Web User&quot; as WU
+
+&#64;0
+WU is Idle
+WB is Idle
+DNS is Idle
+
+&#64;+100
+WU -&gt; WB : URL
+WU is Waiting
+WB is Processing
+
+&#64;+200
+WB is Waiting
+WB -&gt; DNS&#64;+50 : Resolve URL
+
+&#64;+100
+DNS is Processing
+
+&#64;+300
+DNS is Idle
+&#64;enduml
+"/>
+</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="tools">
+<h2>Tools<a class="headerlink" href="#tools" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/List_of_Unified_Modeling_Language_tools">https://en.wikipedia.org/wiki/List_of_Unified_Modeling_Language_tools</a></p>
+<ul class="simple">
+<li><p>Modeling</p>
+<ul>
+<li><p>Code generation</p></li>
+<li><p>Reverse engineering</p></li>
+<li><p>Analyze code complexity</p></li>
+<li><p>Other metrics</p></li>
+</ul>
+</li>
+<li><p>PlantUML</p>
+<ul>
+<li><p>Open-source</p></li>
+<li><p>Can be integrated with IDE:s, Java documentation, Word</p></li>
+<li><p>Scripts rather than drawing tools</p></li>
+<li><p><a class="reference external" href="http://www.plantuml.com/plantuml">http://www.plantuml.com/plantuml</a></p></li>
+</ul>
+</li>
+</ul>
+<section id="plantuml">
+<h3>PlantUML<a class="headerlink" href="#plantuml" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>PlantUML is an open-source tool allowing users to create diagrams from a plain text language.</p></li>
+<li><p>uses Graphviz software to lay out its diagrams</p></li>
+<li><p>More info and examples at <a class="reference external" href="https://plantuml.com/">https://plantuml.com/</a></p></li>
+</ul>
+<section id="syntax">
+<h4>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline"></a></h4>
+<ul class="simple">
+<li><p>https://plantuml.com/</p></li>
+</ul>
+</section>
+<section id="test-yourself">
+<h4>Test yourself!<a class="headerlink" href="#test-yourself" title="Permalink to this headline"></a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.plantuml.com/plantuml/uml/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000">PlantUML web server</a></p></li>
+<li><p>Look at the source files of this material.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="pseudocode">
+<h2>Pseudocode<a class="headerlink" href="#pseudocode" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Pseudocode generally does not obey the syntax rules of any particular language</p>
+<ul>
+<li><p>there is no systematic standard form.</p></li>
+</ul>
+</li>
+<li><p>Some writers borrow style and syntax from control structures from some conventional programming language, although this is discouraged.</p></li>
+<li><p>Some syntax sources include Fortran, Pascal, BASIC, C, C++, Java, Lisp, and ALGOL.</p></li>
+<li><p>Variable declarations are typically omitted.</p></li>
+<li><p>Function calls and blocks of code, such as code contained within a loop, are often replaced by a one-line natural language sentence.</p></li>
+<li><p>Depending on the writer, pseudocode may therefore vary widely in style,</p>
+<ul>
+<li><p>from a near-exact imitation of a real programming language at one extreme</p></li>
+<li><p>to a description approaching formatted prose at the other.</p></li>
+</ul>
+</li>
+</ul>
+<section id="mathematical-style-pseudocode">
+<h3>Mathematical style pseudocode<a class="headerlink" href="#mathematical-style-pseudocode" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Used in numerical computation</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\sum_{k\in S} x_k\]</div>
+<p><strong>Common mathematical symbols</strong></p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type of operation</p></th>
+<th class="head"><p>Symbol</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Assignment</p></td>
+<td><p>← or :=</p></td>
+<td><p>c ← 2πr, c := 2πr</p></td>
+</tr>
+<tr class="row-odd"><td><p>Comparison</p></td>
+<td><p>=, ≠, &lt;, &gt;, ≤, ≥</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Arithmetic</p></td>
+<td><p>+, −, ×, /, mod</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Floor/ceiling</p></td>
+<td><p>⌊, ⌋, ⌈, ⌉</p></td>
+<td><p>a ← ⌊b⌋ + ⌈c⌉</p></td>
+</tr>
+<tr class="row-even"><td><p>Logical</p></td>
+<td><p><strong>and, or</strong></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Sums, products</p></td>
+<td><p>Σ Π</p></td>
+<td><p>h ← Σa∈A 1/a</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline"></a></h3>
+<section id="id1">
+<h4>1<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h4>
+<p>If student’s grade is greater than or equal to 60</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Print &quot;passed&quot;
+</pre></div>
+</div>
+<p>else</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Print &quot;failed&quot; 
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h4>2<a class="headerlink" href="#id2" title="Permalink to this headline"></a></h4>
+<p>Initialize total to zero</p>
+<p>Initialize counter to zero</p>
+<p>Input the first grade</p>
+<p>while the user has not as yet entered the sentinel</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>add this grade into the running total 
+
+add one to the grade counter 
+
+input the next grade (possibly the sentinel)
+</pre></div>
+</div>
+<p>if the counter is not equal to zero</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>set the average to the total divided by the counter
+
+print the average 
+</pre></div>
+</div>
+<p>else</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>print &#39;no grades were entered&#39; 
+</pre></div>
+</div>
+<div class="admonition-discussion discussion attention admonition">
+<p class="admonition-title">Discussion</p>
+<p>In Breakout-rooms 6-8 people:</p>
+<ul class="simple">
+<li><p>What are your impressions about</p>
+<ul>
+<li><p>UML?</p></li>
+<li><p>pseudocode?</p></li>
+</ul>
+</li>
+<li><p>Experiences?</p></li>
+<li><p>Share in the end 1-3 inputs in HackMD</p></li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline"></a></h2>
+<div class="admonition-keypoints keypoints admonition">
+<p class="admonition-title">Keypoints</p>
+<ul class="simple">
+<li><p>UML is good in several conditions</p>
+<ul>
+<li><p>Structural overviews</p></li>
+<li><p>Planning</p></li>
+<li><p>Problem solving</p></li>
+<li><p>Designing phase of programming</p></li>
+</ul>
+</li>
+<li><p>The most important diagrams for software development are:</p>
+<ul>
+<li><p>Class</p></li>
+<li><p>Sequence</p></li>
+<li><p>Activity</p></li>
+<li><p>Use case</p></li>
+</ul>
+</li>
+<li><p>There are plenty of tools out there</p>
+<ul>
+<li><p>some can produce code directly</p></li>
+<li><p>some are script-based and well integrated in Markdown tools like Sphinx and HackMD</p>
+<ul>
+<li><p>perfect for sharing</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Pseudocode gives a more detailed description what you want the program to do.</p>
+<ul>
+<li><p>Can be highly personal or very language-like</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sdlc.html" class="btn btn-neutral float-left" title="The Software Development Lifecycle (SDLC)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sourcecontrol.html" class="btn btn-neutral float-right" title="Source/version control (Git)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, UPPMAX.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
